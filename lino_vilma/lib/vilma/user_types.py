@@ -6,7 +6,6 @@
 
 This is used as the :attr:`user_types_module
 <lino.core.site.Site.user_types_module>` for Vilma sites.
-`.
 
 """
 
@@ -15,7 +14,7 @@ from lino.core.roles import UserRole, SiteAdmin
 from lino_xl.lib.excerpts.roles import ExcerptsUser, ExcerptsStaff
 from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
 from lino.modlib.office.roles import OfficeStaff, OfficeUser
-from lino_xl.lib.cal.roles import CalendarReader
+#from lino_xl.lib.cal.roles import CalendarReader
 
 from lino.modlib.users.choicelists import UserTypes
 from django.utils.translation import ugettext_lazy as _
@@ -49,7 +48,7 @@ class SiteAdmin(Staff, SiteAdmin, OfficeStaff, ContactsStaff):
 
 
 # class Anonymous(CommentsReader, CalendarReader):
-class Anonymous(CalendarReader):
+class Anonymous(UserRole):
     pass
 
 UserTypes.clear()
@@ -62,9 +61,9 @@ add('800', _("Staff"),            Staff, 'staff')
 add('900', _("Administrator"),    SiteAdmin, 'admin')
 
 
-from lino.core.merge import MergeAction
-from lino.api import rt
-lib = rt.models
-for m in (lib.contacts.Company, ):
-    m.define_action(merge_row=MergeAction(
-        m, required_roles=set([ContactsStaff])))
+# from lino.core.merge import MergeAction
+# from lino.api import rt
+# lib = rt.models
+# for m in (lib.contacts.Company, ):
+#     m.define_action(merge_row=MergeAction(
+#         m, required_roles=set([ContactsStaff])))

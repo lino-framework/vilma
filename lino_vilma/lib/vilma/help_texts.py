@@ -3,35 +3,11 @@
 from __future__ import unicode_literals
 from django.utils.translation import ugettext_lazy as _
 help_texts = {
-    'lino_noi.lib.clocking.models.ServiceReport' : _("""A service report is a document used in various discussions with
-a stakeholder."""),
-    'lino_noi.lib.clocking.models.ServiceReport.user' : _("""This can be empty and will then show the working time of all
-users."""),
-    'lino_noi.lib.noi.migrate.Migrator' : _("""The standard migrator for noi."""),
-    'lino_noi.lib.noi.user_types.EndUser' : _("""An end user is somebody who uses our software and may report
-tickets, but won't work on them."""),
-    'lino_noi.lib.noi.user_types.Consultant' : _("""A consultant is somebody who may both report tickets and work
-on them."""),
-    'lino_noi.lib.noi.user_types.Developer' : _("""A developer is somebody who may both report tickets and work
-on them."""),
-    'lino_noi.lib.noi.user_types.Senior' : _("""A senior developer is a developer who is additionally
+    'lino_vilma.lib.vilma.migrate.Migrator' : _("""The standard migrator for noi."""),
+    'lino_vilma.lib.vilma.user_types.EndUser' : _("""An end user is somebody who uses our database, but won't work
+on it."""),
+    'lino_vilma.lib.vilma.user_types.Collector' : _("""A collector is somebody who collects data into the database."""),
+    'lino_vilma.lib.vilma.user_types.Staff' : _("""A senior developer is a developer who is additionally
 responsible for triaging tickets"""),
-    'lino_noi.lib.noi.user_types.SiteAdmin' : _("""Can do everything."""),
-    'lino_noi.lib.tickets.Plugin' : _("""Adds the lino_xl.lib.votes plugin."""),
-    'lino_noi.lib.tickets.models.TicketDetail' : _("""Customized detail_lyout for Tickets.  Replaces waiting_for by
-faculties"""),
-    'lino_noi.lib.users.choicelists.UserStates' : _("""The list of possible choices for the state field
-of a User."""),
-    'lino_noi.lib.users.choicelists.MarkUserActive' : _("""Activate this user. This requires that the user has confirmed their
-verifcation code, and that a username and password are set."""),
-    'lino_noi.lib.users.desktop.UserDetail' : _("""Layout of User Detail in Lino Noi."""),
-    'lino_noi.lib.users.desktop.RegisterUser' : _("""Fill a form in order to register as a new system user."""),
-    'lino_noi.lib.users.desktop.NewUsers' : _("""List of new users to be confirmed by the system admin."""),
-    'lino_noi.lib.users.models.CheckedSubmitInsert' : _("""Like the standard lino.core.actions.SubmitInsert, but
-checks certain things before accepting the new user."""),
-    'lino_noi.lib.users.models.VerifyUser' : _("""Enter your verification code."""),
-    'lino_noi.lib.users.models.User.callme_mode' : _("""Whether other users can see my contact data."""),
-    'lino_noi.lib.users.models.User.verification_code' : _("""A random string set for every new user. Used for
-online_registration."""),
-    'lino_noi.lib.users.models.User.user_state' : _("""The registration state of this user."""),
+    'lino_vilma.lib.vilma.user_types.SiteAdmin' : _("""Can do everything."""),
 }
