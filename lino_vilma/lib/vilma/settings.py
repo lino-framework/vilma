@@ -48,28 +48,28 @@ class Site(Site):
         # yield 'lino.modlib.users'
         yield 'lino_vilma.lib.contacts'
         yield 'lino_xl.lib.online.users'
-        # yield 'lino_noi.lib.cal'
-        # yield 'lino_xl.lib.extensible'
-        # yield 'lino_noi.lib.courses'
+        yield 'lino_noi.lib.cal'
+        yield 'lino_xl.lib.extensible'
+        yield 'lino_noi.lib.courses'
         # yield 'lino_noi.lib.products'
 
-        # yield 'lino_xl.lib.topics'
-        # yield 'lino_xl.lib.votes'
-        # yield 'lino_noi.lib.tickets'
+        yield 'lino_xl.lib.topics'
+        yield 'lino_xl.lib.votes'
+        yield 'lino_noi.lib.tickets'
         yield 'lino_xl.lib.faculties'
-        # yield 'lino_xl.lib.deploy'
-        # yield 'lino_noi.lib.clocking'
-        # yield 'lino_xl.lib.lists'
-        # yield 'lino_xl.lib.blogs'
+        yield 'lino_xl.lib.deploy'
+        yield 'lino_noi.lib.clocking'
+        yield 'lino_xl.lib.lists'
+        yield 'lino_xl.lib.blogs'
 
         # yield 'lino.modlib.changes'
-        # yield 'lino.modlib.notify'
-        # yield 'lino.modlib.uploads'
-        # yield 'lino_xl.lib.outbox'
-        # yield 'lino_xl.lib.excerpts'
+        yield 'lino.modlib.notify'
+        yield 'lino.modlib.uploads'
+        yield 'lino_xl.lib.outbox'
+        yield 'lino_xl.lib.excerpts'
         yield 'lino.modlib.export_excel'
         yield 'lino.modlib.tinymce'
-        yield 'lino.modlib.smtpd'
+        # yield 'lino.modlib.smtpd'
         yield 'lino.modlib.weasyprint'
         # yield 'lino_xl.lib.appypod'
         # yield 'lino.modlib.wkhtmltopdf'
@@ -81,18 +81,20 @@ class Site(Site):
         yield 'lino_vilma.lib.vilma'
         # yield 'lino_xl.lib.inbox'
         # yield 'lino_xl.lib.mailbox'
-        # yield 'lino_xl.lib.meetings'
+        yield 'lino_xl.lib.meetings'
 
 
     def setup_plugins(self):
         super(Site, self).setup_plugins()
-        # self.plugins.comments.configure(
-        #     commentable_model='tickets.Ticket')
+        self.plugins.comments.configure(
+            commentable_model='tickets.Ticket')
+        # self.plugins.faculties.configure(
+        #     demander_model='contacts.Person')
         self.plugins.faculties.configure(
-            demander_model='contacts.Person')
-        # self.plugins.tickets.configure(
-        #     site_model='cal.Room',
-        #     milestone_model='courses.Course')
+            demander_model='tickets.Ticket')
+        self.plugins.tickets.configure(
+            site_model='cal.Room',
+            milestone_model='courses.Course')
 
     def get_default_required(self, **kw):
         # overrides the default behaviour which would add
