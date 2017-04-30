@@ -7,8 +7,10 @@
 
 from lino.api import dd, _
 from lino.utils import join_words
+from lino.mixins import  Hierarchical
 
 from lino_xl.lib.contacts.models import *
+from lino.modlib.comments.mixins import Commentable
 
 
 PartnerDetail.address_box = dd.Panel("""
@@ -27,7 +29,7 @@ PartnerDetail.contact_box = dd.Panel("""
 
 
 @dd.python_2_unicode_compatible
-class Person(Person):
+class Person(Person, Commentable):
     
     class Meta(Person.Meta):
         app_label = 'contacts'
@@ -39,48 +41,115 @@ class Person(Person):
         words.append(self.last_name)
         return join_words(*words)
 
+    @classmethod
+    def get_parameter_fields(cls, **fields):
+        fields.setdefault(
+            'company', models.ForeignKey(
+                'contacts.Company', blank=True, null=True))
+        fields.setdefault(
+            'skill', models.ForeignKey(
+                'faculties.Faculty', blank=True, null=True))
+        return super(Person, cls).get_parameter_fields(**fields)
+    
+    @classmethod
+    def get_simple_parameters(cls):
+        rv = super(Person, cls).get_simple_parameters()
+        rv.add('company')
+        rv.add('skill')
+        return rv
+    
+    @classmethod
+    def add_param_filter(cls, qs, lookup_prefix='', company=None,
+                         skill=None, **kwargs):
+        qs = super(Person, cls).add_param_filter(qs, **kwargs)
+        if company:
+            fkw = dict()
+            wanted = company.whole_clan()
+            fkw[lookup_prefix + 'rolesbyperson__company__in'] = wanted
+            qs = qs.filter(**fkw)
+        
+        if skill:
+            fkw = dict()
+            wanted = skill.whole_clan()
+            fkw[lookup_prefix + 'end_user_set__faculty__in'] = wanted
+        return qs
+        
+
+    # @classmethod
+    # def get_request_queryset(cls, ar):
+    #     qs = super(Person, cls).get_request_queryset(ar)
+    #     pv = ar.param_values
+    #     if pv.skill:
+    #     return qs
+
+
+class Company(Company, Hierarchical, Commentable):
+    
+    class Meta(Company.Meta):
+        app_label = 'contacts'
+        abstract = dd.is_abstract_model(__name__, 'Company')
+        
+
 
 class PersonDetail(PersonDetail):
     
-    main = "general contact"
+    main = "general contact faculties.OffersByEndUser comments.CommentsByRFC"
 
     general = dd.Panel("""
-    overview info_box
+    overview contact_box
     contacts.RolesByPerson
     """, label=_("General"))
 
-    info_box = """
-    id:5
-    language:10
+    contact_box = dd.Panel("""
     email:40
-    """
-    
+    gsm
+    phone
+    url
+    """, label=_("Contact"))
+
     contact = dd.Panel("""
-    address_box:60 contact_box:30
-    remarks faculties.OffersByEndUser
+    address_box
+    remarks
     """, label=_("Contact"))
 
     name_box = "last_name first_name:15 gender #title:10"
 
+    more = dd.Panel("""
+    id:5 language:10 
+    CompaniesByCompany
+    """, label=_("More"))
+
+
+class CompaniesByCompany(Companies):
+    master_key = 'parent'
+
     
 class CompanyDetail(CompanyDetail):
-    main = "general contact"
+    main = "general contact faculties.OffersByEndUser more"
 
     general = dd.Panel("""
-    overview info_box
+    overview contact_box comments.CommentsByRFC
     contacts.RolesByCompany 
     """, label=_("General"))
 
-    info_box = """
-    id:5
-    language:10
-    email:40
-    """
-    
     contact = dd.Panel("""
-    address_box:60 contact_box:30 
-    remarks faculties.OffersByEndUser
+    address_box
+    remarks 
     """, label=_("Contact"))
+
+    contact_box = dd.Panel("""
+    email:40
+    gsm
+    phone
+    url
+    """, label=_("Contact"))
+
+    more = dd.Panel("""
+    id:5 language:10 parent
+    CompaniesByCompany
+    """, label=_("More"))
+
+    
 
 # @dd.receiver(dd.post_analyze)
 # def my_details(sender, **kw):
@@ -90,3 +159,4 @@ class CompanyDetail(CompanyDetail):
 Companies.set_detail_layout(CompanyDetail())
 Persons.set_detail_layout(PersonDetail())
 Person.column_names = 'last_name first_name gsm email city *'
+Persons.params_layout = 'observed_event start_date end_date skill company'

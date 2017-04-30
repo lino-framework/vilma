@@ -73,6 +73,7 @@ class Site(Site):
         yield 'lino.modlib.weasyprint'
         # yield 'lino_xl.lib.appypod'
         # yield 'lino.modlib.wkhtmltopdf'
+        yield 'lino.modlib.comments'
         yield 'lino.modlib.dashboard'
 
         # yield 'lino.modlib.awesomeuploader'
@@ -86,8 +87,8 @@ class Site(Site):
 
     def setup_plugins(self):
         super(Site, self).setup_plugins()
-        self.plugins.comments.configure(
-            commentable_model='tickets.Ticket')
+        # self.plugins.comments.configure(
+        #     commentable_model='tickets.Ticket')
         # self.plugins.faculties.configure(
         #     demander_model='contacts.Person')
         self.plugins.faculties.configure(
