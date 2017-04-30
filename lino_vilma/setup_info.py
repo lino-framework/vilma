@@ -66,6 +66,7 @@ lino_vilma.lib
 lino_vilma.lib.vilma
 lino_vilma.lib.vilma.fixtures
 lino_vilma.lib.contacts
+lino_vilma.lib.contacts.fixtures
 """.splitlines() if n])
 
 SETUP_INFO.update(message_extractors={
