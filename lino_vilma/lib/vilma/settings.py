@@ -50,6 +50,7 @@ class Site(Site):
         yield 'lino_xl.lib.online.users'
         yield 'lino_noi.lib.cal'
         yield 'lino_xl.lib.extensible'
+        yield 'lino_xl.lib.addresses'
         yield 'lino_noi.lib.courses'
         # yield 'lino_noi.lib.products'
 
@@ -91,6 +92,8 @@ class Site(Site):
         #     commentable_model='tickets.Ticket')
         # self.plugins.faculties.configure(
         #     demander_model='contacts.Person')
+        self.plugins.addresses.configure(
+            partner_model='contacts.Person')
         self.plugins.faculties.configure(
             demander_model='tickets.Ticket')
         self.plugins.tickets.configure(

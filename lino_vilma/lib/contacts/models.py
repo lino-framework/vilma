@@ -27,9 +27,10 @@ PartnerDetail.contact_box = dd.Panel("""
     gsm #fax
     """, label=_("Contact"))
 
+from lino_xl.lib.addresses.mixins import AddressOwner
 
 @dd.python_2_unicode_compatible
-class Person(Person, Commentable):
+class Person(Person, Commentable, AddressOwner):
     
     class Meta(Person.Meta):
         app_label = 'contacts'
@@ -40,6 +41,11 @@ class Person(Person, Commentable):
         words.append(self.first_name)
         words.append(self.last_name)
         return join_words(*words)
+
+    def get_overview_elems(self, ar):
+        elems = super(Person, self).get_overview_elems(ar)
+        elems += AddressOwner.get_overview_elems(self, ar)
+        return elems
 
     @classmethod
     def get_parameter_fields(cls, **fields):
@@ -82,6 +88,9 @@ class Person(Person, Commentable):
     #     if pv.skill:
     #     return qs
 
+# We use the `overview` field only in detail forms, and we
+# don't want it to have a label "Description":
+dd.update_field(Person, 'overview', verbose_name=None)    
 
 class Company(Company, Hierarchical, Commentable):
     
@@ -93,30 +102,29 @@ class Company(Company, Hierarchical, Commentable):
 
 class PersonDetail(PersonDetail):
     
-    main = "general contact faculties.OffersByEndUser comments.CommentsByRFC"
+    main = "general #contact faculties.OffersByEndUser more"
 
     general = dd.Panel("""
     overview contact_box
-    contacts.RolesByPerson
+    contacts.RolesByPerson:30 comments.CommentsByRFC:30
     """, label=_("General"))
 
     contact_box = dd.Panel("""
-    email:40
-    gsm
-    phone
-    url
-    """, label=_("Contact"))
+    name_box
+    email 
+    gsm phone
+    """)  #, label=_("Contact"))
 
-    contact = dd.Panel("""
-    address_box
-    remarks
-    """, label=_("Contact"))
+    # contact = dd.Panel("""
+    # address_box
+    # remarks
+    # """, label=_("Contact"))
 
     name_box = "last_name first_name:15 gender #title:10"
 
     more = dd.Panel("""
-    id:5 language:10 
-    CompaniesByCompany
+    id:5 language:10 url
+    remarks
     """, label=_("More"))
 
 
@@ -128,8 +136,8 @@ class CompanyDetail(CompanyDetail):
     main = "general contact faculties.OffersByEndUser more"
 
     general = dd.Panel("""
-    overview contact_box comments.CommentsByRFC
-    contacts.RolesByCompany 
+    overview contact_box 
+    contacts.RolesByCompany:30 comments.CommentsByRFC:30
     """, label=_("General"))
 
     contact = dd.Panel("""
@@ -138,10 +146,8 @@ class CompanyDetail(CompanyDetail):
     """, label=_("Contact"))
 
     contact_box = dd.Panel("""
-    email:40
-    gsm
-    phone
-    url
+    email:40 url
+    gsm phone
     """, label=_("Contact"))
 
     more = dd.Panel("""
