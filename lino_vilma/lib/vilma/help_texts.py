@@ -7,7 +7,7 @@ help_texts = {
     'lino_vilma.lib.vilma.user_types.EndUser' : _("""An end user is somebody who uses our database, but won't work
 on it."""),
     'lino_vilma.lib.vilma.user_types.Collector' : _("""A collector is somebody who collects data into the database."""),
-    'lino_vilma.lib.vilma.user_types.Staff' : _("""A senior developer is a developer who is additionally
-responsible for triaging tickets"""),
+    'lino_vilma.lib.vilma.user_types.ProjectManager' : _("""A project manager additionally sees tickets, projects, courses,
+meetings, calendar..."""),
     'lino_vilma.lib.vilma.user_types.SiteAdmin' : _("""Can do everything."""),
 }
