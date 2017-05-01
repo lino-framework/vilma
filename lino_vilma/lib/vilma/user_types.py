@@ -18,6 +18,7 @@ from lino.modlib.office.roles import OfficeStaff, OfficeUser
 
 from lino.modlib.comments.roles import CommentsUser, CommentsStaff
 from lino_xl.lib.tickets.roles import Triager, TicketsStaff
+from lino_xl.lib.votes.roles import VotesStaff, VotesUser
 from lino_xl.lib.clocking.roles import Worker
 
 #from lino_xl.lib.cal.roles import CalendarReader
@@ -41,7 +42,7 @@ class Collector(EndUser, ExcerptsUser, ContactsUser):
     pass
 
 
-class ProjectManager(Collector, Triager, CommentsUser, Worker):
+class ProjectManager(Collector, VotesUser, Triager, CommentsUser, Worker):
     """A **project manager** additionally sees tickets, projects, courses,
     meetings, calendar...
 
@@ -50,7 +51,7 @@ class ProjectManager(Collector, Triager, CommentsUser, Worker):
 
 
 class Staff(ProjectManager, CoursesUser, ExcerptsStaff, CommentsStaff,
-            TicketsStaff):
+            VotesStaff, TicketsStaff):
     pass
 
 
