@@ -23,7 +23,7 @@ from lino_xl.lib.clocking.roles import Worker
 
 #from lino_xl.lib.cal.roles import CalendarReader
 
-from lino.modlib.auth.choicelists import UserTypes
+from lino.modlib.users.choicelists import UserTypes
 from django.utils.translation import ugettext_lazy as _
 
 
