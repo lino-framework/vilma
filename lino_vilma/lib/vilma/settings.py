@@ -107,15 +107,15 @@ class Site(Site):
 
     def setup_quicklinks(self, user, tb):
         super(Site, self).setup_quicklinks(user, tb)
-        tb.add_action(self.actors.contacts.Persons)
-        tb.add_action(self.actors.contacts.Companies)
+        tb.add_action(self.models.contacts.Persons)
+        tb.add_action(self.models.contacts.Companies)
         # tb.add_action(self.modules.deploy.MyMilestones)
-        # tb.add_action(self.actors.tickets.MyTickets)
-        # tb.add_action(self.actors.tickets.TicketsToTriage)
-        # tb.add_action(self.actors.tickets.TicketsToTalk)
+        # tb.add_action(self.models.tickets.MyTickets)
+        # tb.add_action(self.models.tickets.TicketsToTriage)
+        # tb.add_action(self.models.tickets.TicketsToTalk)
         # tb.add_action(self.modules.tickets.TicketsToDo)
 
-        a = self.actors.auth.MySettings.default_action
+        a = self.models.auth.MySettings.default_action
         tb.add_instance_action(
             user, action=a, label=_("My settings"))
         # handler = self.action_call(None, a, dict(record_id=user.pk))
@@ -129,7 +129,7 @@ class Site(Site):
     #     """
     #     for i in super(Site, self).get_dashboard_items(user):
     #         yield i
-    #     yield self.actors.lists.Lists
+    #     yield self.models.lists.Lists
 
 
 # the following line should not be active in a checked-in version
