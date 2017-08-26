@@ -59,10 +59,10 @@ class Person(Person, Commentable, AddressOwner):
     
     @classmethod
     def get_simple_parameters(cls):
-        rv = super(Person, cls).get_simple_parameters()
-        rv.add('company')
-        rv.add('skill')
-        return rv
+        for p in  super(Person, cls).get_simple_parameters():
+            yield p
+        yield 'company'
+        yield 'skill'
     
     @classmethod
     def add_param_filter(cls, qs, lookup_prefix='', company=None,
