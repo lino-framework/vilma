@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2014-2017 Luc Saffre
+# Copyright 2017 Luc Saffre
 # License: BSD (see file COPYING for details)
 """
 Base Django settings for Lino Vilma applications.
@@ -19,7 +19,7 @@ class Site(Site):
     version = SETUP_INFO['version']
     url = "http://vilma.lino-framework.org/"
 
-    demo_fixtures = ['std', 'demo', 'demo2']
+    demo_fixtures = ['std', 'demo', 'demo2', 'checkdata']
                      # 'linotickets',
                      # 'tractickets', 'luc']
 
@@ -47,29 +47,31 @@ class Site(Site):
         # yield 'lino.modlib.system'
         # yield 'lino.modlib.users'
         yield 'lino_vilma.lib.contacts'
-        yield 'lino_xl.lib.online.users'
-        yield 'lino_noi.lib.cal'
+        # yield 'lino_xl.lib.online.users'
+        yield 'lino_xl.lib.cal'
         yield 'lino_xl.lib.extensible'
         yield 'lino_xl.lib.addresses'
+        yield 'lino_xl.lib.phones'
         yield 'lino_noi.lib.courses'
         # yield 'lino_noi.lib.products'
 
         yield 'lino_xl.lib.topics'
-        yield 'lino_xl.lib.votes'
-        yield 'lino_noi.lib.tickets'
+        # yield 'lino_xl.lib.votes'
+        # yield 'lino_noi.lib.tickets'
         yield 'lino_xl.lib.faculties'
-        yield 'lino_xl.lib.deploy'
-        yield 'lino_noi.lib.clocking'
+        # yield 'lino_xl.lib.deploy'
+        # yield 'lino_noi.lib.clocking'
         yield 'lino_xl.lib.lists'
         yield 'lino_xl.lib.blogs'
 
         # yield 'lino.modlib.changes'
-        yield 'lino.modlib.notify'
-        yield 'lino.modlib.uploads'
-        yield 'lino_xl.lib.outbox'
+        # yield 'lino.modlib.notify'
+        # yield 'lino.modlib.uploads'
+        # yield 'lino_xl.lib.outbox'
         yield 'lino_xl.lib.excerpts'
         yield 'lino.modlib.export_excel'
-        yield 'lino.modlib.tinymce'
+        # yield 'lino.modlib.tinymce'
+        yield 'lino.modlib.plausibility'
         # yield 'lino.modlib.smtpd'
         yield 'lino.modlib.weasyprint'
         # yield 'lino_xl.lib.appypod'
@@ -83,7 +85,7 @@ class Site(Site):
         yield 'lino_vilma.lib.vilma'
         # yield 'lino_xl.lib.inbox'
         # yield 'lino_xl.lib.mailbox'
-        yield 'lino_xl.lib.meetings'
+        # yield 'lino_xl.lib.meetings'
 
 
     def setup_plugins(self):
@@ -92,13 +94,13 @@ class Site(Site):
         #     commentable_model='tickets.Ticket')
         # self.plugins.faculties.configure(
         #     demander_model='contacts.Person')
-        self.plugins.addresses.configure(
-            partner_model='contacts.Person')
-        self.plugins.faculties.configure(
-            demander_model='tickets.Ticket')
-        self.plugins.tickets.configure(
-            site_model='cal.Room',
-            milestone_model='courses.Course')
+        # self.plugins.addresses.configure(
+        #     partner_model='contacts.Person')
+        # self.plugins.faculties.configure(
+        #     demander_model='tickets.Ticket')
+        # self.plugins.tickets.configure(
+        #     site_model='cal.Room',
+        #     milestone_model='courses.Course')
 
     def get_default_required(self, **kw):
         # overrides the default behaviour which would add
@@ -115,7 +117,7 @@ class Site(Site):
         # tb.add_action(self.models.tickets.TicketsToTalk)
         # tb.add_action(self.modules.tickets.TicketsToDo)
 
-        a = self.models.auth.MySettings.default_action
+        a = self.models.users.MySettings.default_action
         tb.add_instance_action(
             user, action=a, label=_("My settings"))
         # handler = self.action_call(None, a, dict(record_id=user.pk))

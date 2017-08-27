@@ -11,6 +11,7 @@ from lino.mixins import  Hierarchical
 
 from lino_xl.lib.contacts.models import *
 from lino.modlib.comments.mixins import Commentable
+from lino_xl.lib.phones.mixins import ContactDetailsOwner
 
 
 PartnerDetail.address_box = dd.Panel("""
@@ -45,6 +46,7 @@ class Person(Person, Commentable, AddressOwner):
     def get_overview_elems(self, ar):
         elems = super(Person, self).get_overview_elems(ar)
         elems += AddressOwner.get_overview_elems(self, ar)
+        elems += ContactDetailsOwner.get_overview_elems(self, ar)
         return elems
 
     @classmethod
@@ -98,6 +100,12 @@ class Company(Company, Hierarchical, Commentable):
         app_label = 'contacts'
         abstract = dd.is_abstract_model(__name__, 'Company')
         
+    def get_overview_elems(self, ar):
+        elems = super(Company, self).get_overview_elems(ar)
+        # elems += AddressOwner.get_overview_elems(self, ar)
+        elems += ContactDetailsOwner.get_overview_elems(self, ar)
+        return elems
+
 
 
 class PersonDetail(PersonDetail):
@@ -110,21 +118,13 @@ class PersonDetail(PersonDetail):
     """, label=_("General"))
 
     contact_box = dd.Panel("""
-    name_box
-    email 
-    gsm phone
+    last_name first_name:15 
+    gender #title:10 language:10 
+    birth_date age:10 id:6
     """)  #, label=_("Contact"))
 
-    # contact = dd.Panel("""
-    # address_box
-    # remarks
-    # """, label=_("Contact"))
-
-    name_box = "last_name first_name:15 gender #title:10"
-
     more = dd.Panel("""
-    id:5 language:10 url
-    remarks
+    remarks  plausibility.ProblemsByOwner
     """, label=_("More"))
 
 
@@ -136,25 +136,23 @@ class CompanyDetail(CompanyDetail):
     main = "general contact faculties.OffersByEndUser more"
 
     general = dd.Panel("""
-    overview contact_box 
+    overview general_middle #phones.ContactDetailsByPartner
     contacts.RolesByCompany:30 comments.CommentsByRFC:30
     """, label=_("General"))
 
+    general_middle = """
+    type
+    parent
+    language:10 id:6
+    """
     contact = dd.Panel("""
-    address_box
-    remarks 
-    """, label=_("Contact"))
-
-    contact_box = dd.Panel("""
-    email:40 url
-    gsm phone
+    # address_box
+    remarks lists.MembersByPartner
     """, label=_("Contact"))
 
     more = dd.Panel("""
-    id:5 language:10 parent
-    CompaniesByCompany
+    CompaniesByCompany plausibility.ProblemsByOwner
     """, label=_("More"))
-
     
 
 # @dd.receiver(dd.post_analyze)
