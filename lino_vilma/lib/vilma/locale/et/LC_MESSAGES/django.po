@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lino-noi 0.0.2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-25 20:28+0300\n"
+"POT-Creation-Date: 2017-08-30 21:05+0300\n"
 "PO-Revision-Date: 2017-03-21 15:58+0200\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: et\n"
@@ -18,20 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.4.0\n"
 
-#: lino_vilma/lib/contacts/models.py:22
+#: lino_vilma/lib/contacts/models.py:23
 msgid "Address"
 msgstr ""
 
-#: lino_vilma/lib/contacts/models.py:28 lino_vilma/lib/contacts/models.py:146
-#: lino_vilma/lib/contacts/models.py:151
+#: lino_vilma/lib/contacts/models.py:29 lino_vilma/lib/contacts/models.py:151
 msgid "Contact"
 msgstr ""
 
-#: lino_vilma/lib/contacts/models.py:110 lino_vilma/lib/contacts/models.py:141
+#: lino_vilma/lib/contacts/models.py:118 lino_vilma/lib/contacts/models.py:141
 msgid "General"
 msgstr ""
 
-#: lino_vilma/lib/contacts/models.py:128 lino_vilma/lib/contacts/models.py:156
+#: lino_vilma/lib/contacts/models.py:128 lino_vilma/lib/contacts/models.py:155
 msgid "More"
 msgstr ""
 
@@ -59,7 +58,7 @@ msgstr ""
 msgid "Can do everything."
 msgstr ""
 
-#: lino_vilma/lib/vilma/settings.py:120
+#: lino_vilma/lib/vilma/settings.py:122
 msgid "My settings"
 msgstr ""
 
