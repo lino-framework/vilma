@@ -6,7 +6,7 @@
 
 SETUP_INFO = dict(
     name='lino-vilma',
-    version='2017.4.0',
+    version='17.10.0',
     install_requires=['lino-noi'],
     # tests_require=['pytest', 'mock'],
     test_suite='tests',
