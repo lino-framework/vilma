@@ -124,7 +124,7 @@ class PersonDetail(PersonDetail):
     """)  #, label=_("Contact"))
 
     more = dd.Panel("""
-    remarks  plausibility.ProblemsByOwner
+    remarks  checkdata.ProblemsByOwner
     """, label=_("More"))
 
 
@@ -151,7 +151,7 @@ class CompanyDetail(CompanyDetail):
     """, label=_("Contact"))
 
     more = dd.Panel("""
-    CompaniesByCompany plausibility.ProblemsByOwner
+    CompaniesByCompany checkdata.ProblemsByOwner
     """, label=_("More"))
     
 
