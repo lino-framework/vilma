@@ -15,19 +15,20 @@ from lino_xl.lib.excerpts.roles import ExcerptsUser, ExcerptsStaff
 from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
 from lino_xl.lib.courses.roles import CoursesUser
 from lino.modlib.office.roles import OfficeStaff, OfficeUser
+from lino_xl.lib.cal.roles import GuestOperator
 
 from lino.modlib.comments.roles import CommentsUser, CommentsStaff
 from lino_xl.lib.tickets.roles import Triager, TicketsStaff
 from lino_xl.lib.votes.roles import VotesStaff, VotesUser
 from lino_xl.lib.clocking.roles import Worker
 
-#from lino_xl.lib.cal.roles import CalendarReader
+from lino_xl.lib.cal.roles import CalendarReader
 
 from lino.modlib.users.choicelists import UserTypes
 from django.utils.translation import ugettext_lazy as _
 
 
-class EndUser(OfficeUser):
+class EndUser(OfficeUser, GuestOperator):
     """An **end user** is somebody who uses our database, but won't work
     on it.
 
@@ -60,7 +61,7 @@ class SiteAdmin(Staff, SiteAdmin, OfficeStaff, ContactsStaff):
 
 
 # class Anonymous(CommentsReader, CalendarReader):
-class Anonymous(UserRole):
+class Anonymous(CalendarReader):
     pass
 
 UserTypes.clear()
