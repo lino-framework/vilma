@@ -20,7 +20,7 @@ from lino_xl.lib.cal.roles import GuestOperator
 from lino.modlib.comments.roles import CommentsUser, CommentsStaff
 from lino_xl.lib.tickets.roles import Triager, TicketsStaff
 from lino_xl.lib.votes.roles import VotesStaff, VotesUser
-from lino_xl.lib.clocking.roles import Worker
+from lino_xl.lib.working.roles import Worker
 
 from lino_xl.lib.cal.roles import CalendarReader
 

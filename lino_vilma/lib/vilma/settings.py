@@ -60,7 +60,7 @@ class Site(Site):
         # yield 'lino_noi.lib.tickets'
         yield 'lino_xl.lib.faculties'
         # yield 'lino_xl.lib.deploy'
-        # yield 'lino_noi.lib.clocking'
+        # yield 'lino_noi.lib.working'
         yield 'lino_xl.lib.lists'
         yield 'lino_xl.lib.blogs'
 
