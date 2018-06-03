@@ -52,10 +52,10 @@ class Person(Person, Commentable):
     @classmethod
     def setup_parameters(cls, fields):
         fields.setdefault(
-            'company', models.ForeignKey(
+            'company', dd.ForeignKey(
                 'contacts.Company', blank=True, null=True))
         fields.setdefault(
-            'skill', models.ForeignKey(
+            'skill', dd.ForeignKey(
                 'faculties.Faculty', blank=True, null=True))
         super(Person, cls).setup_parameters(fields)
     

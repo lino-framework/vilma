@@ -7,7 +7,7 @@
 SETUP_INFO = dict(
     name='lino-vilma',
     version='17.10.0',
-    install_requires=['lino-noi'],
+    install_requires=['lino_noi'],
     # tests_require=['pytest', 'mock'],
     test_suite='tests',
     description=("A Lino application for managing village contacts"),
