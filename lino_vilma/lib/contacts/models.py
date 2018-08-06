@@ -56,7 +56,7 @@ class Person(Person, Commentable):
                 'contacts.Company', blank=True, null=True))
         fields.setdefault(
             'skill', dd.ForeignKey(
-                'faculties.Faculty', blank=True, null=True))
+                'skills.Skill', blank=True, null=True))
         super(Person, cls).setup_parameters(fields)
     
     @classmethod
@@ -110,7 +110,7 @@ class Company(Company, Hierarchical, Commentable):
 
 class PersonDetail(PersonDetail):
     
-    main = "general #contact faculties.OffersByEndUser more"
+    main = "general #contact skills.OffersByEndUser more"
 
     general = dd.Panel("""
     overview contact_box
@@ -133,7 +133,7 @@ class CompaniesByCompany(Companies):
 
     
 class CompanyDetail(CompanyDetail):
-    main = "general contact faculties.OffersByEndUser more"
+    main = "general contact skills.OffersByEndUser more"
 
     general = dd.Panel("""
     overview general_middle #phones.ContactDetailsByPartner
