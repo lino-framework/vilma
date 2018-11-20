@@ -7,7 +7,7 @@ Defines a handler for :data:`lino.modlib.smtpd.signals.mail_received`.
 
 """
 
-from email.parser import Parser
+# from email.parser import Parser
 
 from lino.api import dd
 # from lino.modlib.smtpd.signals import mail_received
