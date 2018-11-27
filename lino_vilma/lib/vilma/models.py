@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2014-2016 Luc Saffre
+# Copyright 2014-2016 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 """The :xfile:`models.py` module for :mod:`lino_noi`.
 
