@@ -30,7 +30,7 @@ class Site(Site):
     workflows_module = 'lino_vilma.lib.vilma.workflows'
     obj2text_template = "**{0}**"
 
-    default_build_method = 'appyodt'
+    default_build_method = 'weasy2pdf'
     
     # experimental use of rest_framework:
     # root_urlconf = 'lino_book.projects.team.urls'
