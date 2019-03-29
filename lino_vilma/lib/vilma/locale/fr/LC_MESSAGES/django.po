@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lino-noi 0.0.2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-30 08:45+0300\n"
+"POT-Creation-Date: 2019-03-29 13:26+0200\n"
 "PO-Revision-Date: 2017-03-20 07:46+0200\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: fr\n"
@@ -40,21 +40,27 @@ msgstr ""
 
 #: lino_vilma/lib/vilma/help_texts.py:8
 msgid ""
+"Move Deployment and Milestone from 'tickets' to new plugin\n"
+"'deploy'."
+msgstr ""
+
+#: lino_vilma/lib/vilma/help_texts.py:10
+msgid ""
 "An end user is somebody who uses our database, but won't work\n"
 "on it."
 msgstr ""
 
-#: lino_vilma/lib/vilma/help_texts.py:10
+#: lino_vilma/lib/vilma/help_texts.py:12
 msgid "A collector is somebody who collects data into the database."
 msgstr ""
 
-#: lino_vilma/lib/vilma/help_texts.py:11
+#: lino_vilma/lib/vilma/help_texts.py:13
 msgid ""
 "A project manager additionally sees tickets, projects, courses,\n"
 "meetings, calendar..."
 msgstr ""
 
-#: lino_vilma/lib/vilma/help_texts.py:13
+#: lino_vilma/lib/vilma/help_texts.py:15
 msgid "Can do everything."
 msgstr ""
 

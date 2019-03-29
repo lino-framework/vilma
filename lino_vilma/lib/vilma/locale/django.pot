@@ -1,14 +1,14 @@
 # Translations template for lino-vilma.
-# Copyright (C) 2018 ORGANIZATION
+# Copyright (C) 2019 ORGANIZATION
 # This file is distributed under the same license as the lino-vilma project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: lino-vilma 18.8.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-30 08:45+0300\n"
+"POT-Creation-Date: 2019-03-29 13:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,21 +39,27 @@ msgstr ""
 
 #: lino_vilma/lib/vilma/help_texts.py:8
 msgid ""
+"Move Deployment and Milestone from 'tickets' to new plugin\n"
+"'deploy'."
+msgstr ""
+
+#: lino_vilma/lib/vilma/help_texts.py:10
+msgid ""
 "An end user is somebody who uses our database, but won't work\n"
 "on it."
 msgstr ""
 
-#: lino_vilma/lib/vilma/help_texts.py:10
+#: lino_vilma/lib/vilma/help_texts.py:12
 msgid "A collector is somebody who collects data into the database."
 msgstr ""
 
-#: lino_vilma/lib/vilma/help_texts.py:11
+#: lino_vilma/lib/vilma/help_texts.py:13
 msgid ""
 "A project manager additionally sees tickets, projects, courses,\n"
 "meetings, calendar..."
 msgstr ""
 
-#: lino_vilma/lib/vilma/help_texts.py:13
+#: lino_vilma/lib/vilma/help_texts.py:15
 msgid "Can do everything."
 msgstr ""
 
