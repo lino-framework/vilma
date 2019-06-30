@@ -44,7 +44,7 @@ Lino Vilma is a customizable contact management system for villages.
     author='Luc Saffre',
     author_email='luc@lino-framework.org',
     url="http://vilma.lino-framework.org",
-    license='BSD License',
+    license='BSD-2-Clause',
     classifiers="""\
 Programming Language :: Python
 Programming Language :: Python :: 2
