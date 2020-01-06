@@ -1,12 +1,12 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017 Rumma & Ko Ltd
+# Copyright 2017-2020 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
 # $ python setup.py test -s tests.PackagesTests.test_packages
 
 SETUP_INFO = dict(
     name='lino-vilma',
-    version='18.8.0',
+    version='20.1',
     install_requires=['lino_noi'],
     # tests_require=['pytest', 'mock'],
     test_suite='tests',
@@ -47,7 +47,7 @@ Lino Vilma is a customizable contact management system for villages.
     license='BSD-2-Clause',
     classifiers="""\
 Programming Language :: Python
-Programming Language :: Python :: 2
+Programming Language :: Python :: 3
 Development Status :: 4 - Beta
 Environment :: Web Environment
 Framework :: Django
