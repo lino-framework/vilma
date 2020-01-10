@@ -31,10 +31,10 @@ class Site(Site):
     obj2text_template = "**{0}**"
 
     default_build_method = 'weasy2pdf'
-    
+
     # experimental use of rest_framework:
     # root_urlconf = 'lino_book.projects.team.urls'
-    
+
     # migration_class = 'lino_vilma.lib.vilma.migrate.Migrator'
 
     auto_configure_logger_names = "atelier django lino lino_xl lino_noi"
@@ -49,7 +49,8 @@ class Site(Site):
         yield 'lino_vilma.lib.contacts'
         # yield 'lino_xl.lib.online.users'
         yield 'lino_xl.lib.cal'
-        yield 'lino_xl.lib.extensible'
+        yield 'lino_xl.lib.calview'
+        # yield 'lino_xl.lib.extensible'
         yield 'lino_xl.lib.addresses'
         yield 'lino_xl.lib.phones'
         yield 'lino_noi.lib.courses'
@@ -124,7 +125,7 @@ class Site(Site):
         # handler = "function(){%s}" % handler
         # mysettings = dict(text=_("My settings"),
         #                   handler=js_code(handler))
-        
+
     # def get_dashboard_items(self, user):
     #     """Defines the story to be displayed on the admin main page.
 
@@ -141,4 +142,3 @@ USE_TZ = True
 # TIME_ZONE = 'Europe/Brussels'
 # TIME_ZONE = 'Europe/Tallinn'
 TIME_ZONE = 'UTC'
-
