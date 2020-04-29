@@ -9,7 +9,6 @@ This is used as the :attr:`user_types_module
 
 """
 
-
 from lino.core.roles import UserRole, SiteAdmin
 from lino_xl.lib.excerpts.roles import ExcerptsUser, ExcerptsStaff
 from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
@@ -73,11 +72,3 @@ add('200', _("Collector"),        Collector, 'collector')
 add('300', _("Project manager"),  ProjectManager, 'manager')
 add('800', _("Staff"),            Staff, 'staff')
 add('900', _("Administrator"),    SiteAdmin, 'admin')
-
-
-# from lino.core.merge import MergeAction
-# from lino.api import rt
-# lib = rt.models
-# for m in (lib.contacts.Company, ):
-#     m.define_action(merge_row=MergeAction(
-#         m, required_roles=set([ContactsStaff])))

@@ -1,13 +1,10 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017 Rumma & Ko Ltd
+# Copyright 2017-2020 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 """
 Base Django settings for Lino Vilma applications.
 
 """
-
-from __future__ import print_function
-from __future__ import unicode_literals
 
 from lino.projects.std.settings import *
 from lino.api.ad import _
@@ -20,8 +17,6 @@ class Site(Site):
     url = "http://vilma.lino-framework.org/"
 
     demo_fixtures = ['std', 'demo', 'demo2', 'checkdata']
-                     # 'linotickets',
-                     # 'tractickets', 'luc']
 
     # project_model = 'tickets.Project'
     # project_model = 'deploy.Milestone'
@@ -89,20 +84,6 @@ class Site(Site):
         # yield 'lino_xl.lib.meetings'
 
 
-    def setup_plugins(self):
-        super(Site, self).setup_plugins()
-        # self.plugins.comments.configure(
-        #     commentable_model='tickets.Ticket')
-        # self.plugins.skills.configure(
-        #     demander_model='contacts.Person')
-        # self.plugins.addresses.configure(
-        #     partner_model='contacts.Person')
-        # self.plugins.skills.configure(
-        #     demander_model='tickets.Ticket')
-        # self.plugins.tickets.configure(
-        #     site_model='cal.Room',
-        #     milestone_model='courses.Course')
-
     def get_default_required(self, **kw):
         # overrides the default behaviour which would add
         # `auth=True`. In Lino Noi everybody can see everything.
@@ -126,13 +107,6 @@ class Site(Site):
         # mysettings = dict(text=_("My settings"),
         #                   handler=js_code(handler))
 
-    # def get_dashboard_items(self, user):
-    #     """Defines the story to be displayed on the admin main page.
-
-    #     """
-    #     for i in super(Site, self).get_dashboard_items(user):
-    #         yield i
-    #     yield self.models.lists.Lists
 
 
 # the following line should not be active in a checked-in version

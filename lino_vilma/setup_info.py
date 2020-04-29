@@ -64,7 +64,6 @@ SETUP_INFO.update(packages=[str(n) for n in """
 lino_vilma
 lino_vilma.lib
 lino_vilma.lib.vilma
-lino_vilma.lib.vilma.fixtures
 lino_vilma.lib.contacts
 lino_vilma.lib.contacts.fixtures
 """.splitlines() if n])
