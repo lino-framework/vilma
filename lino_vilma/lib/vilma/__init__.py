@@ -2,7 +2,7 @@
 # Copyright 2014-2020 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 """
-The main plugin for Lino Vilma.
+The main plugin for :ref:`vilma`.
 
 .. autosummary::
    :toctree:
