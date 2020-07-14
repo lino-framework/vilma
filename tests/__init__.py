@@ -10,19 +10,10 @@ from unipath import Path
 
 ROOTDIR = Path(__file__).parent.parent
 
-SETUP_INFO = {}
-
-# load SETUP_INFO:
-fn = ROOTDIR.child('lino_vilma', 'setup_info.py')
-exec(compile(open(fn, "rb").read(), fn, 'exec'))
-
+from lino_vilma.setup_info import SETUP_INFO
 from lino.utils.pythontest import TestCase
 
 class PackagesTests(TestCase):
 
     def test_packages(self):
         self.run_packages_test(SETUP_INFO['packages'])
-
-
-
-
