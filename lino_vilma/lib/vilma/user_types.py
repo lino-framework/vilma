@@ -24,7 +24,7 @@ from lino_xl.lib.working.roles import Worker
 from lino_xl.lib.cal.roles import CalendarReader
 
 from lino.modlib.users.choicelists import UserTypes
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 
 class EndUser(OfficeUser, GuestOperator):
