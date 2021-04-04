@@ -99,9 +99,9 @@ class Site(Site):
         # tb.add_action(self.models.tickets.TicketsToTalk)
         # tb.add_action(self.modules.tickets.TicketsToDo)
 
-        a = self.models.users.MySettings.default_action
-        tb.add_instance_action(
-            user, action=a, label=_("My settings"))
+        # a = self.models.users.MySettings.default_action
+        # tb.add_instance_action(
+        #     user, action=a, label=_("My settings"))
         # handler = self.action_call(None, a, dict(record_id=user.pk))
         # handler = "function(){%s}" % handler
         # mysettings = dict(text=_("My settings"),
