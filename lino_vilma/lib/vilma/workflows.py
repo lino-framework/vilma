@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 # Copyright 2016-2017 Rumma & Ko Ltd
 #
-# License: BSD (see file COPYING for details)
+# License: GNU Affero General Public License v3 (see file COPYING for details)
 """The default :attr:`workflows_module
 <lino.core.site.Site.workflows_module>` for :ref:`noi` applications.
 

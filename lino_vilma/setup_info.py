@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Copyright 2017-2020 Rumma & Ko Ltd
-# License: BSD (see file COPYING for details)
+# License: GNU Affero General Public License v3 (see file COPYING for details)
 
 # $ python setup.py test -s tests.PackagesTests.test_packages
 
@@ -43,19 +43,19 @@ Lino Vilma is a customizable contact management system for villages.
 """,
     author='Luc Saffre',
     author_email='luc@lino-framework.org',
-    url="http://vilma.lino-framework.org",
-    license='BSD-2-Clause',
+    url="https://github.com/lino-framework/vilma",
+    license_files=['COPYING'],
     classifiers="""\
 Programming Language :: Python
 Programming Language :: Python :: 3
-Development Status :: 4 - Beta
+Development Status :: 1 - Planning
 Environment :: Web Environment
 Framework :: Django
 Intended Audience :: Developers
 Intended Audience :: System Administrators
 Intended Audience :: Information Technology
 Intended Audience :: Customer Service
-License :: OSI Approved :: BSD License
+License :: OSI Approved :: GNU Affero General Public License v3
 Operating System :: OS Independent
 Topic :: Software Development :: Bug Tracking
 """.splitlines())
