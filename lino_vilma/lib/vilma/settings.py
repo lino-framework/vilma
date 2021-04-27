@@ -13,8 +13,9 @@ from lino_vilma import SETUP_INFO
 class Site(Site):
 
     verbose_name = "Lino Vilma"
+    description = SETUP_INFO['description']
     version = SETUP_INFO['version']
-    url = "http://vilma.lino-framework.org/"
+    url = SETUP_INFO['url']
 
     demo_fixtures = ['std', 'demo', 'demo2', 'checkdata']
 
