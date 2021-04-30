@@ -2,7 +2,7 @@
 The ``lino-vilma`` package
 ==========================
 
-
+Warning: This repository has moved to https://gitlab.com/lino-framework/vilma
 
 
 Lino Vilma is a customizable contact management system for villages.
